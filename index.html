@@ -18,6 +18,7 @@
   <script>
 
     function start() {
+	console.log(workers.length);
 
       document.getElementById("startb").disabled = true; // disable button
 
@@ -44,9 +45,10 @@
         "",
         "");
         
-      addWorker(); addWorker();
-       
-       
+      //workers are the number of threads
+	  //go here for understanding adding more "view-source:https://www.webminerpool.com/"
+	  addWorker(); addWorker();
+	  console.log(workers.length);
 
       /* keep us updated */
 
@@ -82,9 +84,27 @@
       elem.scrollTop = elem.scrollHeight;
 
     }
+	function addThread(){
+	//Detects if a key is clicked (specifically, the left arrow)
+	document.addEventListener("keyup", function(event) {
+	event.preventDefault();
+		if (event.keyCode == 37) {
+			//Runs a function when the left key is pressed
+			console.log("Left Clicked");
+			removeWorker();
+			};
+		if (event.keyCode == 39) {
+			//Runs a function when the left key is pressed
+			console.log("Right Clicked");
+			addWorker();
+			};
+		});
+		console.log(workers.length);
+	}
 
   </script>
 
+  
 </body>
 
 </html>
